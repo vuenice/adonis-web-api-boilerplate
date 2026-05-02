@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  @vite(['resources/css/app.css'])
+  <title>Web demo — CSRF</title>
+</head>
+<body class="stack">
+  <p><a href="/">← Home</a></p>
+
+  @if(flashMessages.has('notice'))
+    <p class="notice">{{ flashMessages.get('notice') }}</p>
+  @endif
+
+  @if(flashMessages.has('error'))
+    <p class="errors">{{ flashMessages.get('error') }}</p>
+  @endif
+
+  <form method="post" action="/demo">
+    {{ csrfField() }}
+    <label>
+      Note
+      <input type="text" name="note" maxlength="120" autocomplete="off" />
+    </label>
+    <button type="submit">Submit</button>
+  </form>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "extends": "./node_modules/@adonisjs/tsconfig/tsconfig.app.json",
+  "include": ["**/*"],
+  "exclude": ["node_modules", "build"],
+  "compilerOptions": {
+    "rootDir": "./",
+    "outDir": "./build",
+    "jsx": "react",
+    "lib": ["esnext"]
+  }
+}
